@@ -101,7 +101,7 @@ namespace core
             {
                 Out(node.Member.DeclaringType == null
                     ? node.Member.Name
-                    : $"{SimplifyType(node.Member.DeclaringType)}.{node.Member.Name}");
+                    : $"{node.Member.DeclaringType}.{node.Member.Name}");
             }
             else if (node.Expression.NodeType == ExpressionType.Constant)
             {
@@ -121,16 +121,6 @@ namespace core
             }
 
             return node;
-        }
-        
-        /// <summary>
-        /// Simplfies the type names
-        /// </summary>
-        /// <param name="type"></param>
-        /// <returns></returns>
-        private static string SimplifyType(Type type)
-        {
-            return type.FullName.Replace("System", "");
         }
 
         /// <summary>
